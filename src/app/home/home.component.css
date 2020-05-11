@@ -1,0 +1,12 @@
+img {
+    width: 100%;
+    box-shadow: 0 0 30px 7px #330835;
+}
+
+h1 {
+    position: relative;
+    top: -700px;
+    left: 400px;
+    color: #fff;
+    float: left;
+}
