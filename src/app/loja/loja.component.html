@@ -1,0 +1,66 @@
+<body class="container">
+    <div>
+   <div>
+        <h2 class="my-3 text-center">Cadastre um produto</h2>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Nome:</label>
+              <input type="text" class="form-control" id="nome"
+               placeholder="Digite aqui o nome" [(ngModel)]="produto.nome">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Preço:</label>
+                <input type="text" class="form-control" id="preco"
+                 placeholder="Digite aqui o preço" [(ngModel)]="produto.preco">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Imagem:</label>
+                <input type="text" class="form-control" id="url"
+                placeholder="Digite aqui a URL da imagem" [(ngModel)]="produto.urlImg">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Quantidade no estoque:</label>
+                <input type="text" class="form-control" id="qtd"
+                 placeholder="Digite aqui a quantidade no estoque" [(ngModel)]="produto.descricao">
+              </div>
+            </div>
+            <button class="btn btn-primary" (click)="postProduto()">Cadastrar</button>
+            <hr >
+       <h1 class="my-3 text-center"> Produtos</h1>
+    
+    </div>
+    <div *ngIf = 'alerta'>
+    <div class="alert alert-success" role="alert">
+        Produto deletado com sucesso!
+      </div>
+    </div>
+    <div class="row row-cols-4">
+        <div class="col-4 card mb-4" style="width: 15rem;" *ngFor="let produto of listaProduto">
+            <div class="card-body">
+            <div class="card-title text-center"><h4>{{produto.nome}}</h4></div>
+            <hr>
+
+            <div>
+               <img class="img" src="{{produto.urlImg}}" alt="">
+
+            </div>
+            <hr>
+            <div>
+                <span>Preço: {{produto.preco}},00 R$</span>
+
+            </div>
+            <hr>
+            <div>
+                <span>Quantidade: {{produto.descricao}}</span>
+
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-outline-primary" [routerLink]="['/editar', produto.id]">Editar</button>
+                <button class="btn btn-outline-danger" [routerLink]="['/deletar', produto.id]">Apagar</button>
+            </div>
+        </div>
+        </div>
+        
+        
+      </div>
+</body>
